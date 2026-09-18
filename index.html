@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Team Namaste Bangtan</title>
+  
+  <!-- PWA & Mobile Settings -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#7c3aed" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <!-- Styling & Fonts -->
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+KR:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top App Header -->
+  <header class="top-nav">
+    <div class="brand">
+      <div class="logo-shield">TNB</div>
+      <div class="brand-text">
+        <h1>Team Namaste Bangtan</h1>
+        <span class="subtext">BTS Army Mission Hub</span>
+      </div>
+    </div>
+    <div class="kst-badge" id="kstClock">KST --:--</div>
+  </header>
+
+  <!-- Main App Content -->
+  <main class="content-container">
+
+    <!-- Tab 1: Live BTS Voting -->
+    <section id="tab-voting" class="tab-pane active">
+      <div class="section-title-wrap">
+        <h2>Active BTS Voting</h2>
+        <span class="live-pill">● LIVE TRACKER</span>
+      </div>
+      <p class="section-desc">Vote on all platforms. Tap direct action to open links or apps.</p>
+      
+      <div id="votingList" class="cards-list"></div>
+    </section>
+
+    <!-- Tab 2: Kira-Style Korean Flashcards -->
+    <section id="tab-korean" class="tab-pane">
+      <div class="section-title-wrap">
+        <h2>Korean Learning Hub</h2>
+        <span class="tag-pill">Kira Mode</span>
+      </div>
+      <p class="section-desc">Learn essential Hangul, pronunciation, and BTS context daily.</p>
+
+      <div class="flashcard">
+        <div class="card-top-bar">
+          <span class="card-badge" id="cardCategory">Category</span>
+          <button class="sound-chip" onclick="playAudio()">🔊 Listen</button>
+        </div>
+        
+        <div class="korean-display">
+          <div class="hangul-text" id="cardHangul">보라해</div>
+          <div class="romanization-text" id="cardRom">[Borahae]</div>
+        </div>
+
+        <div class="meaning-box">
+          <div class="en-text" id="cardEn">I purple you</div>
+          <div class="hi-text" id="cardHi">हमेशा प्यार और भरोसा निभाना</div>
+        </div>
+
+        <div class="context-box">
+          <p id="cardContext">Coined by V at the 3rd Muster.</p>
+        </div>
+      </div>
+
+      <div class="card-controls">
+        <button class="nav-btn" onclick="prevCard()">← Prev</button>
+        <span class="counter-display" id="cardCounter">1 / 5</span>
+        <button class="nav-btn primary" onclick="nextCard()">Next →</button>
+      </div>
+    </section>
+
+    <!-- Tab 3: Daily ARMY Tasks -->
+    <section id="tab-tasks" class="tab-pane">
+      <div class="section-title-wrap">
+        <h2>TNB Daily Checklist</h2>
+        <span class="tag-pill">Streaks</span>
+      </div>
+      <p class="section-desc">Maintain your daily voting, streaming, and learning routine.</p>
+
+      <div class="task-form">
+        <input type="text" id="taskInput" placeholder="Add voting or streaming task..." />
+        <button onclick="addTask()">Add</button>
+      </div>
+
+      <ul id="taskList" class="task-list"></ul>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <button class="nav-btn-bar active" onclick="switchTab('voting', this)">
+      <span class="nav-icon">🗳️</span>
+      <span class="nav-label">Voting</span>
+    </button>
+    <button class="nav-btn-bar" onclick="switchTab('korean', this)">
+      <span class="nav-icon">🇰🇷</span>
+      <span class="nav-label">Learn</span>
+    </button>
+    <button class="nav-btn-bar" onclick="switchTab('tasks', this)">
+      <span class="nav-icon">✅</span>
+      <span class="nav-label">Routine</span>
+    </button>
+  </nav>
+
+  <script src="./script.js"></script>
+</body>
+</html>
